@@ -1,4 +1,5 @@
 import Button from "../Components/Button";
+import Carousel from "../Components/Carousel";
 
 function Home() {
     return ( 
@@ -21,6 +22,10 @@ function Home() {
                         <Button text="Send me the free Ebook" bgColor="#0D0C22" />
                     </div>
                 </div>
+            </section>
+
+            <section>
+                <Carousel />
             </section>
         </>
     );

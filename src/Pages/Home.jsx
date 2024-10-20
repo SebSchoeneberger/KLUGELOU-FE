@@ -29,7 +29,7 @@ function Home() {
                 <Carousel />
             </section>
 
-            <section>
+            <section className="flex flex-col items-center justify-center pb-24">
 
                 <h1 className="font-nunito text-4xl font-medium text-customBlack text-center pt-24 pb-20">
                     Explore the amazing world of gemstones

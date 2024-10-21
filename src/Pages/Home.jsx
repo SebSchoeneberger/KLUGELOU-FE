@@ -1,4 +1,5 @@
 import Button from "../Components/Button";
+import Cards from "../Components/Cards";
 import Carousel from "../Components/Carousel";
 import SearchBar from "../Components/SearchBar";
 
@@ -7,10 +8,10 @@ function Home() {
         <>
             <section className="bg-[#F8F7F4] flex flex-col items-center relative h-auto pt-[109px] md:h-[540px]">
                 <div className="w-full max-w-[1264px] px-4 md:px-0">
-                    <h1 className="font-inria text-[#0D0C22] text-center text-[72px] leading-[40px] mb-2 md:text-[72px] md:leading-[76px]">
+                    <h1 className="font-inria text-[#0D0C22] text-center text-5xl md:text-6xl lg:text-7xl leading-[40px] mb-2 md:leading-[64px] lg:leading-[76px]">
                         The world’s destination for gemstone’s lovers
                     </h1>
-                    <p className="font-helvetica text-[#0D0C22] text-center text-[16px] leading-[24px] mb-[24px] md:text-[19.84px] md:leading-[36px] md:mb-[48px]">
+                    <p className="font-helvetica text-[#0D0C22] text-center text-base leading-[24px] mb-[24px] md:text-[19.84px] md:leading-[36px] md:mb-[48px]">
                         Get our free ebook about Gemstones right now
                     </p>
                     <div className="flex flex-col md:flex-row justify-center items-center gap-[16px] md:gap-[24px]">
@@ -37,6 +38,21 @@ function Home() {
 
                 <SearchBar />
 
+            </section>
+
+            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center px-4 lg:px-24 gap-8 lg:gap-14 pb-60">
+                <Cards />
+                <Cards />
+                <Cards />
+                <Cards />
+                <Cards />
+                <Cards />
+                <Cards />
+                <Cards />
+                <Cards />
+                <Cards />
+                <Cards />
+                <Cards />
             </section>
         </>
     );

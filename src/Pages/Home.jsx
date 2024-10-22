@@ -40,7 +40,8 @@ function Home() {
 
             </section>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-center px-4 lg:px-24 gap-8 lg:gap-14 pb-60">
+            <section className="grid justify-items-center items-center grid-cols-1 px-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-14 pb-60">
+
                 <Cards />
                 <Cards />
                 <Cards />

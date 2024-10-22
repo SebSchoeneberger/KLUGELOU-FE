@@ -6,10 +6,10 @@ import pinterestIcon from "../assets/img/Social media/5282545_pin_pinterest_insp
 function Footer() {
   return ( 
       <>
-          <footer className="footer bg-[#EFF2F6] text-base-content py-12 px-20">
-              <div className="flex lg:flex-row justify-between w-full">
+          <footer className="footer bg-[#EFF2F6] text-base-content py-12 px-12 md:px-20">
+              <div className="flex flex-col md:flex-row justify-between w-full">
                   <section className="flex flex-col max-w-[450px] items-start lg:w-1/2 mb-10 lg:mb-0">
-                      <h3 className="text-black font-semibold text-4xl mb-2">Sign up for our newsletter</h3>
+                      <h3 className="text-black font-semibold text-left text-2xl md:text-4xl mb-2">Sign up for our newsletter</h3>
                       <p className="text-black text-left text-sm mb-4">Be the first to know about our special offers, new product launches, and events</p>
                       
                       {/* Input with button inside */}

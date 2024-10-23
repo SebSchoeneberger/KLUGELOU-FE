@@ -1,4 +1,5 @@
 import React from 'react';
+
 function Pagination({ currentPage, totalPages, onPageChange }) {
     const pageNumbers = [];
 
@@ -7,14 +8,16 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
     }
 
     return (
-        <div className="flex gap-2">
+        <div className="flex gap-2 text-black">
             {/* Previous Page Button */}
             <button
                 onClick={() => onPageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="px-4 py-2 bg-gray-300 rounded"
+                className={`w-8 h-8 flex justify-center items-center rounded-full ${currentPage === 1 ? 'bg-[#919EAB] border-[#919EAB]' : 'bg-transparent border border-black'}`}
             >
-                Previous
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
             </button>
 
             {/* Page Number Buttons */}
@@ -22,7 +25,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
                 <button
                     key={number}
                     onClick={() => onPageChange(number)}
-                    className={`px-4 py-2 rounded ${currentPage === number ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}
+                    className={`w-8 h-8 rounded-full bg-transparent border ${currentPage === number ? 'border-[#4200FF]' : 'border-black'}`}
                 >
                     {number}
                 </button>
@@ -32,9 +35,11 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
             <button
                 onClick={() => onPageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="px-4 py-2 bg-gray-300 rounded"
+                className={`w-8 h-8 rounded-full flex justify-center items-center ${currentPage === totalPages ? 'bg-[#919EAB] border-[#919EAB]' : 'bg-transparent border border-black'}`}
             >
-                Next
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
             </button>
         </div>
     );

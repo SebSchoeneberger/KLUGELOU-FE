@@ -1,45 +1,51 @@
 import Button from '../Components/Button';
-import img from '../assets/img/93a1be4f40ef03a51ceefde515ee444c.png';
+import { useNavigate } from 'react-router-dom';
 
-function Cards() {
+function Cards({_id, name, imageUrl, namesOrigin, crystalSystem, starSign, chakra, element, charging, discharging }) {
+    const navigate = useNavigate();
+
+    const handleButtonClick = () => {
+        console.log(_id);
+        navigate(`/stone/${_id}`);
+    }
+
     return (
         <div className="card bg-white w-[315px] max-h-[547px] border border-black shadow-xl rounded-[34px] overflow-hidden flex flex-col">
 
             <figure className="w-full h-[223px]">
                 <img
-                    src={img}
-                    alt="Amethyst"
+                    src={imageUrl}
+                    alt={name}
                     className="w-full h-full object-cover"
                 />
             </figure>
 
             <div className="card-body flex flex-col justify-center items-start p-6 gap-3 w-full h-[324px]">
-
                 <h2 className="font-helvetica font-bold text-2xl leading-[28px] text-black text-left">
-                    Amethyst
+                    {name}
                 </h2>
 
                 <div className="flex flex-col items-start gap-1 w-full">
                     <p className="text-sm text-black text-left">
-                        Name's origin: Greek for "not drunk".
+                        Name's origin: {namesOrigin}.
                     </p>
                     <p className="text-sm text-black text-left">
-                        Crystal system: Trigonal
+                        Crystal system: {crystalSystem}
                     </p>
                     <p className="text-sm text-black text-left">
-                        Star Sign: Pisces
+                        Star Sign: {starSign}
                     </p>
                     <p className="text-sm text-black text-left">
-                        Chakra: Crown Chakra
+                        Chakra: {chakra}
                     </p>
                     <p className="text-sm text-black text-left">
-                        Element: Water
+                        Element: {element}
                     </p>
                     <p className="text-sm text-black text-left">
-                        Charging: Amethyst Geode, Moonlight
+                        Charging: {charging}
                     </p>
                     <p className="text-sm text-black text-left">
-                        Discharging: Running water, hematite tumbled stones
+                        Discharging: {discharging}
                     </p>
                 </div>
 
@@ -48,6 +54,7 @@ function Cards() {
                         text="See healing properties"
                         bgColor="bg-[#0D0C22]"
                         textColor="text-[#FFFFFF]"
+                        onClick={handleButtonClick}
                     />
                 </div>
             </div>

@@ -22,10 +22,8 @@ function StoneDetails() {
   }
 
   return (
-   <
-    
-   >
-        <section className="flex py-28 px-44 gap-28 text-black">
+   <>
+        <section className="flex flex-col justify-center items-center px-4 md:px-6 xl:flex-row xl:items-start py-28 lg:px-44 gap-28 text-black">
           <div className="max-w-[350px] h-full border border-black rounded-[34px]">
             <img
               src={stone.imageUrl}
@@ -64,7 +62,7 @@ function StoneDetails() {
                 How to use {stone.name} in Your Life
               </h1>
               {Array.isArray(stone.howToUse) ? (
-                <ul className="list-disc pl-5">
+                <ul className="l</h1>ist-disc pl-5">
                   {/* Use unordered list with disc bullets */}
                   {stone.howToUse.map((howTo, index) => (
                     <li key={index} className="text-base font-normal leading-6 mb-4">
@@ -102,8 +100,7 @@ function StoneDetails() {
         </section>
     
         <GemstoneLibrary backgroundClass='bg-[#F8F7F4]' />
-   </
-  >
+   </>
   );
 }
 

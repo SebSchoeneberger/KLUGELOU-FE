@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -15,7 +16,7 @@ function Navbar() {
                 </div>
 
                 {/* Title Section */}
-                <div className="flex flex-col justify-center lg:justify-self-center justify-self-start col-span-2 lg:col-span-1">
+                <Link to='/' className="flex flex-col justify-center lg:justify-self-center justify-self-start col-span-2 lg:col-span-1">
                     {/* "The Tumbled Stone Guide by" Title */}
                     <h1 className="font-helvetica font-medium text-lg lg:text-[17.86px] xl:text-[24px] leading-[24px] lg:leading-[32px] xl:leading-[48px] text-customBlack text-left lg:text-center">
                         The Tumbled Stone Guide by
@@ -24,13 +25,16 @@ function Navbar() {
                     <h2 className="font-inria font-normal text-sm lg:text-[14px] xl:text-[21.14px] leading-[13px] lg:leading-[17px] xl:leading-[25px] text-[#000000] lg:text-right text-left tracking-[3px] lg:tracking-[4px] xl:tracking-[6px] uppercase">
                         KLUGELOU
                     </h2>
-                </div>
+                </Link>
 
                 {/* Regular Link and Button - Visible from medium screens and up */}
                 <div className="hidden md:flex items-center gap-4 justify-end col-span-1">
-                    <a className="font-helvetica font-bold text-[13.89px] leading-[14px] text-[#6750A4]" href="">
-                        Go to Gemstone Library
-                    </a>
+                <Link 
+        className="font-helvetica font-bold text-[13.89px] leading-[14px] text-[#6750A4]" 
+        to="/#gemstone-library" // Link to the home page and specific section
+    >
+        Go to Gemstone Library
+    </Link>
                     <Button 
                         text="KLUGELOU Store" 
                         bgColor="bg-[#FFDA79]" 

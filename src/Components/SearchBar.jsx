@@ -1,7 +1,19 @@
-function SearchBar() {
+import { useState } from "react";
+
+function SearchBar({
+    searchText,
+    setSearchText,
+    selectedCrystalSystem,
+    setSelectedCrystalSystem,
+    selectedZodiacSign,
+    setSelectedZodiacSign,
+    selectedChakraType,
+    setSelectedChakraType,
+    selectedElement,
+    setSelectedElement,
+}) {
     return (
         <section className="flex flex-col items-center w-full">
-            
             {/* Search input */}
             <label className="input flex items-center gap-2 w-full max-w-[575px] h-[48px] bg-white border border-black rounded-full px-4">
                 <svg
@@ -22,6 +34,8 @@ function SearchBar() {
                     type="text"
                     className="grow outline-none bg-transparent text-sm font-nunito"
                     placeholder="Search..."
+                    value={searchText}
+                    onChange={(e) => setSearchText(e.target.value)} 
                 />
             </label>
 
@@ -29,9 +43,11 @@ function SearchBar() {
             <div className="mt-4 flex flex-row flex-wrap gap-3">
                 <select
                     name="Crystal Systems"
+                    value={selectedCrystalSystem} // Set selected value
+                    onChange={(e) => setSelectedCrystalSystem(e.target.value)} // Update state on change
                     className="bg-transparent font-helvetica font-bold text-sm text-customBlack rounded-md"
                 >
-                    <option defau selected>Crystal Systems</option>
+                    <option value="">All Crystal Systems</option>
                     <option value="trigonal">Trigonal</option>
                     <option value="monoclinic">Monoclinic</option>
                     <option value="hexagonal">Hexagonal</option>
@@ -44,9 +60,11 @@ function SearchBar() {
 
                 <select
                     name="Zodiac Signs"
+                    value={selectedZodiacSign} // Set selected value
+                    onChange={(e) => setSelectedZodiacSign(e.target.value)} // Update state on change
                     className="bg-transparent font-helvetica font-bold text-sm text-customBlack rounded-md"
                 >
-                    <option disabled selected>Zodiac Signs</option>
+                    <option value="">All Zodiac Signs</option>
                     <option value="libra">Libra</option>
                     <option value="capricorn">Capricorn</option>
                     <option value="virgo">Virgo</option>
@@ -63,9 +81,11 @@ function SearchBar() {
 
                 <select
                     name="Chakra Types"
-                    className="bg-transparent font-helvetica font-bold max-w-[110px] text-sm text-customBlack rounded-md"
+                    value={selectedChakraType} // Set selected value
+                    onChange={(e) => setSelectedChakraType(e.target.value)} // Update state on change
+                    className="bg-transparent font-helvetica font-bold max-w-[135px] text-sm text-customBlack rounded-md"
                 >
-                    <option disabled selected>Chakra Types</option>
+                    <option value="">All Chakra Types</option>
                     <option value="root">Root Chakra</option>
                     <option value="heart">Heart Chakra</option>
                     <option value="solar-plexus">Solar Plexus Chakra</option>
@@ -78,9 +98,11 @@ function SearchBar() {
 
                 <select
                     name="Elements"
+                    value={selectedElement} // Set selected value
+                    onChange={(e) => setSelectedElement(e.target.value)} // Update state on change
                     className="bg-transparent font-helvetica font-bold text-sm text-customBlack rounded-md"
                 >
-                    <option disabled selected>Elements</option>
+                    <option value="">All Elements</option>
                     <option value="water">Water</option>
                     <option value="air">Air</option>
                     <option value="earth">Earth</option>

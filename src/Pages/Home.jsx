@@ -1,10 +1,11 @@
+// Home.js
+import React from "react";
 import Button from "../Components/Button";
-import Cards from "../Components/Cards";
 import Carousel from "../Components/Carousel";
-import SearchBar from "../Components/SearchBar";
+import GemstoneLibrary from "../Components/GemstoneLibrary"; // Import your new component
 
 function Home() {
-    return ( 
+    return (
         <>
             <section className="bg-[#F8F7F4] flex flex-col items-center relative h-auto pt-[109px] md:h-[540px]">
                 <div className="w-full max-w-[1264px] px-4 md:px-0">
@@ -30,31 +31,7 @@ function Home() {
                 <Carousel />
             </section>
 
-            <section className="flex flex-col items-center justify-center pb-24">
-
-                <h1 className="font-nunito text-4xl font-medium text-customBlack text-center pt-24 pb-20">
-                    Explore the amazing world of gemstones
-                </h1>
-
-                <SearchBar />
-
-            </section>
-
-            <section className="grid justify-items-center items-center grid-cols-1 px-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-14 pb-60">
-
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-            </section>
+            <GemstoneLibrary />
         </>
     );
 }

@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Pagination({ currentPage, totalPages, onPageChange }) {
     const pageNumbers = [];
 
@@ -9,7 +7,6 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
 
     return (
         <div className="flex gap-2 text-black">
-            {/* Previous Page Button */}
             <button
                 onClick={() => onPageChange(currentPage - 1)}
                 disabled={currentPage === 1}
@@ -20,7 +17,6 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
                 </svg>
             </button>
 
-            {/* Page Number Buttons */}
             {pageNumbers.map((number) => (
                 <button
                     key={number}
@@ -31,7 +27,6 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
                 </button>
             ))}
 
-            {/* Next Page Button */}
             <button
                 onClick={() => onPageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}

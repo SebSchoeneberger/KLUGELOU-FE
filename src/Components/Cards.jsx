@@ -5,7 +5,6 @@ function Cards({_id, name, imageUrl, namesOrigin, crystalSystem, starSign, chakr
     const navigate = useNavigate();
 
     const handleButtonClick = () => {
-        console.log(_id);
         navigate(`/stone/${_id}`);
     }
 

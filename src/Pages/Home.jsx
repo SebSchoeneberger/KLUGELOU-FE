@@ -1,8 +1,7 @@
-// Home.js
 import React from "react";
 import Button from "../Components/Button";
 import Carousel from "../Components/Carousel";
-import GemstoneLibrary from "../Components/GemstoneLibrary"; // Import your new component
+import GemstoneLibrary from "../Components/GemstoneLibrary";
 
 function Home() {
     return (
@@ -27,10 +26,7 @@ function Home() {
                 </div>
             </section>
 
-            <section>
-                <Carousel />
-            </section>
-
+            <Carousel />
             <GemstoneLibrary />
         </>
     );

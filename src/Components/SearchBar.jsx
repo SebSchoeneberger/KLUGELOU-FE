@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function SearchBar({
     searchText,
     setSearchText,
@@ -14,7 +12,7 @@ function SearchBar({
 }) {
     return (
         <section className="flex flex-col items-center w-full">
-            {/* Search input */}
+
             <label className="input flex items-center gap-2 w-full max-w-[575px] h-[48px] bg-white border border-black rounded-full px-4">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -39,12 +37,12 @@ function SearchBar({
                 />
             </label>
 
-            {/* Dropdowns layout */}
+
             <div className="mt-4 flex flex-row flex-wrap gap-3">
                 <select
                     name="Crystal Systems"
-                    value={selectedCrystalSystem} // Set selected value
-                    onChange={(e) => setSelectedCrystalSystem(e.target.value)} // Update state on change
+                    value={selectedCrystalSystem}
+                    onChange={(e) => setSelectedCrystalSystem(e.target.value)}
                     className="bg-transparent font-helvetica font-bold text-sm text-customBlack rounded-md"
                 >
                     <option value="">All Crystal Systems</option>
@@ -60,8 +58,8 @@ function SearchBar({
 
                 <select
                     name="Zodiac Signs"
-                    value={selectedZodiacSign} // Set selected value
-                    onChange={(e) => setSelectedZodiacSign(e.target.value)} // Update state on change
+                    value={selectedZodiacSign}
+                    onChange={(e) => setSelectedZodiacSign(e.target.value)}
                     className="bg-transparent font-helvetica font-bold text-sm text-customBlack rounded-md"
                 >
                     <option value="">All Zodiac Signs</option>
@@ -81,8 +79,8 @@ function SearchBar({
 
                 <select
                     name="Chakra Types"
-                    value={selectedChakraType} // Set selected value
-                    onChange={(e) => setSelectedChakraType(e.target.value)} // Update state on change
+                    value={selectedChakraType}
+                    onChange={(e) => setSelectedChakraType(e.target.value)}
                     className="bg-transparent font-helvetica font-bold max-w-[135px] text-sm text-customBlack rounded-md"
                 >
                     <option value="">All Chakra Types</option>
@@ -98,8 +96,8 @@ function SearchBar({
 
                 <select
                     name="Elements"
-                    value={selectedElement} // Set selected value
-                    onChange={(e) => setSelectedElement(e.target.value)} // Update state on change
+                    value={selectedElement}
+                    onChange={(e) => setSelectedElement(e.target.value)}
                     className="bg-transparent font-helvetica font-bold text-sm text-customBlack rounded-md"
                 >
                     <option value="">All Elements</option>

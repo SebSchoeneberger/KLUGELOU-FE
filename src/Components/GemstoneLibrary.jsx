@@ -89,7 +89,6 @@ const GemstoneLibrary = ({ backgroundClass = 'bg-white' }) => {
                 )}
             </section>
 
-            {/* Pagination Section */}
             <section className="flex justify-center items-center mt-4 py-28">
                 <Pagination
                     currentPage={currentPage}

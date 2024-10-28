@@ -1,9 +1,16 @@
+import React, { useState } from 'react';
+import Button from '../Components/Button';
+import GemstoneLibrary from '../Components/GemstoneLibrary';
+
 function Admin() {
-    return (
-        <>
-        <h1>Admin Only!</h1>
-        </>
-      );
+
+
+  return (
+      <>
+        <GemstoneLibrary
+        title='Gemstone Library' />
+      </>
+  );
 }
 
 export default Admin;

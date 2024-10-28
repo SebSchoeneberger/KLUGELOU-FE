@@ -1,12 +1,18 @@
+import { useContext } from 'react';
 import Button from '../Components/Button';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthProvider'; 
 
 function Cards({_id, name, imageUrl, namesOrigin, crystalSystem, starSign, chakra, element, charging, discharging }) {
     const navigate = useNavigate();
-
+    const { admin } = useContext(AuthContext);
     const handleButtonClick = () => {
-        navigate(`/stone/${_id}`);
-    }
+        if (admin) {
+            navigate(`/admin/update/${_id}`);
+        } else {
+            navigate(`/stone/${_id}`);
+        }
+    };
 
     return (
         <div className="card bg-white w-[315px] max-h-[547px] border border-black shadow-xl rounded-[34px] overflow-hidden flex flex-col">
@@ -50,7 +56,7 @@ function Cards({_id, name, imageUrl, namesOrigin, crystalSystem, starSign, chakr
 
                 <div className="w-full flex justify-center">
                     <Button
-                        text="See healing properties"
+                        text={admin ? "Update Gemstone" : "See healing properties"}
                         bgColor="bg-[#0D0C22]"
                         textColor="text-[#FFFFFF]"
                         onClick={handleButtonClick}

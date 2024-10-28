@@ -4,7 +4,7 @@ import Cards from './Cards';
 import Pagination from './Pagination';
 import { fetchStones } from '../services/stoneAPI.js'; // Adjust the import path based on your structure
 
-const GemstoneLibrary = ({ backgroundClass = 'bg-white' }) => {
+const GemstoneLibrary = ({ backgroundClass = 'bg-white', title = "Explore the amazing world of gemstones" }) => {
     const [stones, setStones] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [searchText, setSearchText] = useState("");
@@ -50,7 +50,7 @@ const GemstoneLibrary = ({ backgroundClass = 'bg-white' }) => {
         <>
             <section className={`flex flex-col items-center justify-center pb-24 ${backgroundClass}`}>
                 <h1 id="gemstone-library" className="font-nunito text-4xl font-medium text-customBlack text-center pt-24 pb-20">
-                    Explore the amazing world of gemstones
+                    {title}
                 </h1>
 
                 <SearchBar

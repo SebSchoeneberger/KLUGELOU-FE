@@ -45,3 +45,34 @@ export function deleteStone(id) {
         });
 }
 
+export function createStone(data) {
+
+    return axios.post(`${API_URL}/stones`, data, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
+    })
+        .then((res) => {
+            return res.data.data;
+        })
+        .catch((err) => {
+            console.error(err);
+            return null;
+        });
+}
+
+export function updateStone(id, data) {
+
+    return axios.put(`${API_URL}/stones/${id}`, data, {
+        headers: {  
+            Authorization: `Bearer ${token}`
+        },  
+    })
+        .then((res) => {
+            return res.data.data;
+        })
+        .catch((err) => {
+            console.error(err);
+            return null;
+        });
+}

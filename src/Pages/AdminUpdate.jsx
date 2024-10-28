@@ -1,73 +1,72 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { fetchStoneById } from '../services/stoneAPI.js';
+import { fetchStoneById, deleteStone } from '../services/stoneAPI.js';
 import Cards from '../Components/Cards.jsx';
 import Button from '../Components/Button.jsx';
-import { deleteStone } from '../services/stoneAPI.js';
-import { getToken } from '../../utils/tokenUtils.js';
 import DeleteModal from '../Components/Modals/DeleteModal.jsx';
+import UpdateCardModal from '../Components/Modals/UpdateCardModal.jsx';
+import UpdateDetailsModal from '../Components/Modals/UpdateDetailsModal.jsx';
 
 function AdminUpdate() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [stone, setStone] = useState(null);
   const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
+  const [updateCardModalIsOpen, setUpdateCardModalIsOpen] = useState(false);
+  const [updateDetailsModalIsOpen, setUpdateDetailsModalIsOpen] = useState(false);
+
 
   useEffect(() => {
     fetchStoneById(id)
-      .then((data) => {
-        setStone(data);
-      })
-      .catch((err) => {
-        console.error('Error fetching stone details:', err);
-      });
+      .then((data) => setStone(data))
+      .catch((err) => console.error('Error fetching stone details:', err));
   }, [id]);
 
-  if (!stone) {
-    return <p>Loading...</p>;
-  }
+  if (!stone) return <p>Loading...</p>;
 
   const handleDelete = () => {
-    console.log('Deleting stone:', id);
     deleteStone(id)
-    .then((data) => {
-        console.log('Stone deleted:', data);
-        navigate('/admin');
-    })
-    .catch((err) => {
-        console.error('Error deleting stone:', err);
-    });
-};
+      .then(() => navigate('/admin'))
+      .catch((err) => console.error('Error deleting stone:', err));
+  };
 
-const openDeleteModal = () => setDeleteModalIsOpen(true);
-const closeDeleteModal = () => setDeleteModalIsOpen(false);
+  const openDeleteModal = () => setDeleteModalIsOpen(true);
+  const closeDeleteModal = () => setDeleteModalIsOpen(false);
+
+  const openUpdateCardModal = () => setUpdateCardModalIsOpen(true);
+  const closeUpdateCardModal = () => setUpdateCardModalIsOpen(false);
+
+  const openUpdateDetailsModal = () => setUpdateDetailsModalIsOpen(true); 
+  const closeUpdateDetailsModal = () => setUpdateDetailsModalIsOpen(false);
 
   return (
-  <>
-
-    <section className='w- full h-auto m-5 flex justify-center items-center gap-12'>
+    <>
+      <section className='w-full h-auto m-5 flex justify-center items-center gap-12'>
         <Cards {...stone} />
-     <div className='flex flex-col gap-6'>
-            <Button                 
-                text="Update Card" 
-                bgColor="bg-[#FFDA79]" 
-                textColor="text-[#0D0C22]" />
-            <Button                 
-                text="Update Details Page" 
-                bgColor="bg-[#FFDA79]" 
-                textColor="text-[#0D0C22]" />
-            <Button                 
-                text="Delete Card" 
-                bgColor="bg-red-500" 
-                textColor="text-[#0D0C22]"
-                hoverBgColor='hover:bg-red-700'
-                onClick={openDeleteModal} />
-     </div>
-    </section>
+        <div className='flex flex-col gap-6'>
+          <Button 
+            text="Update Card" 
+            bgColor="bg-[#FFDA79]" 
+            textColor="text-[#0D0C22]"
+            onClick={openUpdateCardModal}
+          />
+          <Button 
+            text="Update Details" 
+            bgColor="bg-[#FFDA79]" 
+            textColor="text-[#0D0C22]"
+            onClick={openUpdateDetailsModal}
+          />
+          <Button 
+            text="Delete Card" 
+            bgColor="bg-red-500" 
+            textColor="text-[#0D0C22]"
+            hoverBgColor='hover:bg-red-700'
+            onClick={openDeleteModal}
+          />
+        </div>
+      </section>
 
-
-  {/* Details Page */}
-    <section className="flex flex-col justify-center items-center px-4 md:px-6 xl:flex-row xl:items-start py-28 lg:px-44 gap-28 text-black">
+      <section className="flex flex-col justify-center items-center px-4 md:px-6 xl:flex-row xl:items-start py-28 lg:px-44 gap-28 text-black">
       <div className="max-w-[350px] h-full border border-black rounded-[34px]">
         <img
           src={stone.imageUrl}
@@ -147,14 +146,27 @@ const closeDeleteModal = () => setDeleteModalIsOpen(false);
       </div>
     </section>
 
-    <DeleteModal
+      <DeleteModal
         isOpen={deleteModalIsOpen}
         onClose={closeDeleteModal}
-        onConfirm={handleDelete} // Call handleDelete on confirm
+        onConfirm={handleDelete}
         message="Are you sure you want to delete this stone?"
       />
 
-  </>
+      <UpdateCardModal
+        isOpen={updateCardModalIsOpen}
+        onClose={closeUpdateCardModal}
+        stone={stone}  // Pass existing stone data
+        onUpdate={(updatedData) => setStone(updatedData)}
+      />
+
+    <UpdateDetailsModal
+        isOpen={updateDetailsModalIsOpen}
+        onClose={closeUpdateDetailsModal}
+        stone={stone}  // Pass existing stone data
+        onUpdate={(updatedData) => setStone((prev) => ({ ...prev, ...updatedData }))}
+      />
+    </>
   );
 }
 

@@ -1,6 +1,8 @@
 import axios from 'axios';
+import { getToken } from '../../utils/tokenUtils';
 
 const API_URL = import.meta.env.VITE_API_URL;
+const token = getToken();
 
 export function fetchStones() {
 
@@ -24,6 +26,22 @@ export function fetchStoneById(id) {
         .catch((err) => {
             console.error(err);
             return null; 
+        });
+}
+
+export function deleteStone(id) {
+
+    return axios.delete(`${API_URL}/stones/${id}`, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
+    })
+        .then((res) => {
+            return res.data;
+        })
+        .catch((err) => {
+            console.error(err);
+            return null;
         });
 }
 

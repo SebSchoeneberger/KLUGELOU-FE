@@ -85,7 +85,6 @@ function AdminUpdate() {
             <input
               type="file"
               accept="image/*"
-              ref={fileInputRef}
               className="hidden"
               onChange={handleImageUpload}
             />

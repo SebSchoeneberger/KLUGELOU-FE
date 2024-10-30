@@ -8,6 +8,7 @@ import AuthProvider from "./context/AuthProvider";
 import ProtectedLayout from "./Layouts/ProtectedLayout";
 import Admin from "./Pages/Admin";
 import AdminUpdate from "./Pages/AdminUpdate";
+import AdminProfile from "./Pages/AdminProfile";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
 
       <Route path="/" element={<ProtectedLayout />}>
         <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/profile" element={<AdminProfile />} />
         <Route path="/admin/update/:id" element={<AdminUpdate />} />
       </Route>
     </Route>

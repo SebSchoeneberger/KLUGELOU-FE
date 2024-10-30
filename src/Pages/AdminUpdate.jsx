@@ -39,7 +39,8 @@ function AdminUpdate() {
         try {
             const uploadedImageData = await uploadStoneImage(id, file);
             if (uploadedImageData) {
-                setStone(prev => ({ ...prev, imageUrl: uploadedImageData.url }));
+              const updatedStoneData = await fetchStoneById(id);
+              setStone(updatedStoneData);
             } else {
                 console.error('Image upload failed.');
             }
@@ -63,7 +64,7 @@ function AdminUpdate() {
 
   return (
     <>
-      <section className='w-full h-auto m-5 flex justify-center items-center gap-12'>
+      <section className='w-full h-auto p-4 flex flex-col md:flex-row justify-center items-center gap-12'>
       <div className="relative">
         <label className="absolute top-2 right-2 cursor-pointer z-10 p-2">
           <svg

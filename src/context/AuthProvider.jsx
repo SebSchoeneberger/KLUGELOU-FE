@@ -43,7 +43,7 @@ const AuthProvider = ({children}) => {
         }
 
         setLoading(true);
-        getAdmin(getToken())
+        getAdmin()
             .then((response) => {
 
                 if (response && response.success) {

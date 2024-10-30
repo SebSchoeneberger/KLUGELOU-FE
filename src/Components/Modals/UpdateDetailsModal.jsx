@@ -38,7 +38,6 @@ function UpdateDetailsModal({ isOpen, onClose, stone, onUpdate }) {
       howToUse: formData.howToUse.includes('\n') ? formData.howToUse.split('\n') : formData.howToUse,
       otherInfo: formData.otherInfo.includes('\n') ? formData.otherInfo.split('\n') : formData.otherInfo
     };
-    console.log(updatedData);
     const updatedStone = await updateStone(stone._id, updatedData);
 
     onUpdate(updatedStone);

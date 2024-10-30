@@ -2,8 +2,40 @@ import twitterIcon from "../assets/img/Social media/5282551_tweet_twitter_twitte
 import facebookIcon from "../assets/img/Social media/5282541_fb_social media_facebook_facebook logo_social network_icon.svg";
 import instagramIcon from "../assets/img/Social media/5282544_camera_instagram_social media_social network_instagram logo_icon.svg";
 import pinterestIcon from "../assets/img/Social media/5282545_pin_pinterest_inspiration_pinterest logo_icon.svg";
+import { useState } from "react";
+import { emailSubscribe } from "../services/mailerAPI";
 
 function Footer() {
+    const [email, setEmail] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState('');
+
+    const handleSubscribe = async (e) => {
+        e.preventDefault();
+        if (!validateEmail(email)) {
+            setMessage("Please enter a valid email address.");
+            return;
+        }
+
+        setLoading(true);
+        setMessage('');
+
+        const result = await emailSubscribe(email);
+        setLoading(false);
+
+        if (result) {
+            setMessage("Subscription successful! 🎉");
+            setEmail('');
+        } else {
+            setMessage("Failed to subscribe. Please try again.");
+        }
+    };
+
+    const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+        return re.test(email);
+    };
+
     return ( 
         <>
             <footer className="footer bg-[#EFF2F6] text-base-content py-12 px-12 md:px-20">
@@ -12,14 +44,20 @@ function Footer() {
                         <h3 className="text-black font-semibold text-left text-2xl md:text-4xl mb-2">Sign up for our newsletter</h3>
                         <p className="text-black text-left text-sm mb-4">Be the first to know about our special offers, new product launches, and events</p>
                         
+                        {/* Mailer lite Input for Subscriptions to Newsletter */}
                         <div className="relative w-full lg:w-[400px] h-10">
                             <input
                                 type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Email Address"
-                                className="input bg-transparent w-full h-full border border-black placeholder:text-gray-400 pr-20"
+                                className="input bg-transparent w-full text-customBlack h-full border border-black placeholder:text-gray-400 pr-20"
                             />
-                            <button className="absolute right-0 top-0 bg-transparent text-black h-full px-4 font-semibold">Sign Up</button>
+                            <button onClick={handleSubscribe} className="absolute right-0 top-0 bg-transparent text-black h-full px-4 font-semibold" disabled={loading}>
+                                {loading ? "Signing Up..." : "Sign Up"}
+                            </button>
                         </div>
+                        {message && <p className="text-red-600 mt-2">{message}</p>}
 
                         <div className="flex space-x-4 pt-10 pb-6">
                             <a href="#" aria-label="Twitter">

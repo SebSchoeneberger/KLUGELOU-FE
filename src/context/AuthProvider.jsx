@@ -37,7 +37,6 @@ const AuthProvider = ({children}) => {
     useEffect(() => {
 
         const token = getToken();
-        console.log("Token fetched:", token);
         if (!token) {
             setLoading(false);
             return;
@@ -46,10 +45,9 @@ const AuthProvider = ({children}) => {
         setLoading(true);
         getAdmin(getToken())
             .then((response) => {
-                console.log("getAdmin response:", response);
+
                 if (response && response.success) {
                     setAdmin(response.admin);
-                    console.log("Admin fetched successfully");
                 } else {
                     console.error("Admin fetch failed:", response?.message || "Unknown error");
                     setAdmin(null);

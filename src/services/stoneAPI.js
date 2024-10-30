@@ -76,3 +76,23 @@ export function updateStone(id, data) {
             return null;
         });
 }
+
+export function uploadStoneImage(id, file) {
+    const formData = new FormData();
+    formData.append('image', file);
+
+    return axios.post(`${API_URL}/stones/${id}/upload-image`, formData, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data',
+        },
+    })
+        .then((res) => {
+            return res.data.data;
+        })
+        .catch((err) => {
+            console.error(err);
+            return null;
+        });
+
+}

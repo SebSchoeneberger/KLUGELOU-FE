@@ -23,9 +23,9 @@ function CreateModal({ isOpen, onClose, onCreate }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onCreate(formData); // Send data back to parent
-    onClose(); // Close the modal
-    setFormData({ // Reset form fields
+    onCreate(formData); 
+    onClose(); 
+    setFormData({ 
       name: '',
       imageUrl: '',
       namesOrigin: '',
@@ -42,7 +42,7 @@ function CreateModal({ isOpen, onClose, onCreate }) {
 
   return (
     <dialog id="create_modal" open className="modal">
-      <div className="modal-box">
+      <div className="modal-box bg-[#e0e2e6] text-customBlack">
         <h3 className="font-bold text-lg">Create New Gemstone</h3>
         <form onSubmit={handleSubmit} className="py-4">
           <div className="mb-4">
@@ -52,7 +52,7 @@ function CreateModal({ isOpen, onClose, onCreate }) {
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full border-black border-solid border bg-white"
               required
             />
           </div>
@@ -64,7 +64,7 @@ function CreateModal({ isOpen, onClose, onCreate }) {
               name="imageUrl"
               value={formData.imageUrl}
               onChange={handleInputChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full border-black border-solid border bg-white"
               placeholder="https://example.com/image.jpg"
             />
           </div>
@@ -76,7 +76,7 @@ function CreateModal({ isOpen, onClose, onCreate }) {
               name="namesOrigin"
               value={formData.namesOrigin}
               onChange={handleInputChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full border-black border-solid border bg-white"
             />
           </div>
 
@@ -87,7 +87,7 @@ function CreateModal({ isOpen, onClose, onCreate }) {
               name="crystalSystem"
               value={formData.crystalSystem}
               onChange={handleInputChange}
-              className="select select-bordered w-full"
+              className="input input-bordered w-full border-black border-solid border bg-white"
             >
               <option value="">Select Crystal System</option>
               <option value="Trigonal">Trigonal</option>
@@ -108,7 +108,7 @@ function CreateModal({ isOpen, onClose, onCreate }) {
               name="starSign"
               value={formData.starSign}
               onChange={handleInputChange}
-              className="select select-bordered w-full"
+              className="input input-bordered w-full border-black border-solid border bg-white"
             >
               <option value="">Select Star Sign</option>
               <option value="Libra">Libra</option>
@@ -133,7 +133,7 @@ function CreateModal({ isOpen, onClose, onCreate }) {
               name="chakra"
               value={formData.chakra}
               onChange={handleInputChange}
-              className="select select-bordered w-full"
+              className="input input-bordered w-full border-black border-solid border bg-white"
             >
               <option value="">Select Chakra</option>
               <option value="Root">Root Chakra</option>
@@ -154,7 +154,7 @@ function CreateModal({ isOpen, onClose, onCreate }) {
               name="element"
               value={formData.element}
               onChange={handleInputChange}
-              className="select select-bordered w-full"
+              className="input input-bordered w-full border-black border-solid border bg-white"
             >
               <option value="">Select Element</option>
               <option value="Water">Water</option>
@@ -171,7 +171,7 @@ function CreateModal({ isOpen, onClose, onCreate }) {
               name="charging"
               value={formData.charging}
               onChange={handleInputChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full border-black border-solid border bg-white"
             />
           </div>
 
@@ -182,12 +182,12 @@ function CreateModal({ isOpen, onClose, onCreate }) {
               name="discharging"
               value={formData.discharging}
               onChange={handleInputChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full border-black border-solid border bg-white"
             />
           </div>
 
           <div className="modal-action">
-            <button type="submit" className="btn btn-primary">Create</button>
+            <button type="submit" className="btn btn-warning">Create</button>
             <button type="button" className="btn" onClick={onClose}>Cancel</button>
           </div>
         </form>

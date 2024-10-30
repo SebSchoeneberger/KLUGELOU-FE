@@ -42,7 +42,7 @@ function UpdateCardModal({ isOpen, onClose, stone, onUpdate }) {
 
   return (
     <dialog id="update_modal" open className="modal">
-      <div className="modal-box">
+      <div className="modal-box bg-[#e0e2e6] text-customBlack">
         <h3 className="font-bold text-lg">Update Gemstone</h3>
         <form onSubmit={handleSubmit} className="py-4">
           <div className="mb-4">
@@ -52,7 +52,7 @@ function UpdateCardModal({ isOpen, onClose, stone, onUpdate }) {
               name="name"
               value={formData.name || ''}
               onChange={handleInputChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full border-black border-solid border bg-white"
               required
             />
           </div>
@@ -64,7 +64,7 @@ function UpdateCardModal({ isOpen, onClose, stone, onUpdate }) {
               name="imageUrl"
               value={formData.imageUrl || ''}
               onChange={handleInputChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full border-black border-solid border bg-white"
               placeholder="https://example.com/image.jpg"
             />
           </div>
@@ -76,7 +76,7 @@ function UpdateCardModal({ isOpen, onClose, stone, onUpdate }) {
               name="namesOrigin"
               value={formData.namesOrigin || ''}
               onChange={handleInputChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full border-black border-solid border bg-white"
             />
           </div>
 
@@ -87,7 +87,7 @@ function UpdateCardModal({ isOpen, onClose, stone, onUpdate }) {
               name="crystalSystem"
               value={formData.crystalSystem || ''}
               onChange={handleInputChange}
-              className="select select-bordered w-full"
+              className="select select-bordered w-full border-black border-solid border bg-white"
             >
               <option value="">Select Crystal System</option>
               <option value="Trigonal">Trigonal</option>
@@ -108,7 +108,7 @@ function UpdateCardModal({ isOpen, onClose, stone, onUpdate }) {
               name="starSign"
               value={formData.starSign || ''}
               onChange={handleInputChange}
-              className="select select-bordered w-full"
+              className="select select-bordered w-full border-black border-solid border bg-white"
             >
               <option value="">Select Star Sign</option>
               <option value="Libra">Libra</option>
@@ -133,7 +133,7 @@ function UpdateCardModal({ isOpen, onClose, stone, onUpdate }) {
               name="chakra"
               value={formData.chakra || ''}
               onChange={handleInputChange}
-              className="select select-bordered w-full"
+              className="select select-bordered w-full border-black border-solid border bg-white"
             >
               <option value="">Select Chakra</option>
               <option value="Root">Root Chakra</option>
@@ -154,7 +154,7 @@ function UpdateCardModal({ isOpen, onClose, stone, onUpdate }) {
               name="element"
               value={formData.element || ''}
               onChange={handleInputChange}
-              className="select select-bordered w-full"
+              className="select select-bordered w-full border-black border-solid border bg-white"
             >
               <option value="">Select Element</option>
               <option value="Water">Water</option>
@@ -171,7 +171,7 @@ function UpdateCardModal({ isOpen, onClose, stone, onUpdate }) {
               name="charging"
               value={formData.charging || ''}
               onChange={handleInputChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full border-black border-solid border bg-white"
             />
           </div>
 
@@ -182,13 +182,13 @@ function UpdateCardModal({ isOpen, onClose, stone, onUpdate }) {
               name="discharging"
               value={formData.discharging || ''}
               onChange={handleInputChange}
-              className="input input-bordered w-full"
+              className="input input-bordered w-full border-black border-solid border bg-white"
             />
           </div>
 
 
           <div className="modal-action">
-            <button type="submit" className="btn btn-primary">Save Changes</button>
+            <button type="submit" className="btn btn-warning">Save Changes</button>
             <button type="button" className="btn" onClick={onClose}>Cancel</button>
           </div>
         </form>

@@ -49,7 +49,7 @@ function UpdateDetailsModal({ isOpen, onClose, stone, onUpdate }) {
 
   return (
     <dialog id="update_details_modal" open className="modal">
-      <div className="modal-box">
+      <div className="modal-box bg-[#e0e2e6] text-customBlack">
         <h3 className="font-bold text-lg">Update Stone Details</h3>
         <form onSubmit={handleSubmit} className="py-4">
 
@@ -60,7 +60,7 @@ function UpdateDetailsModal({ isOpen, onClose, stone, onUpdate }) {
               name="description"
               value={formData.description || ''}
               onChange={handleInputChange}
-              className="textarea textarea-bordered w-full"
+              className="textarea textarea-bordered w-full border-black border-solid border bg-white"
               rows="3"
             />
           </div>
@@ -72,7 +72,7 @@ function UpdateDetailsModal({ isOpen, onClose, stone, onUpdate }) {
               name="healingPotential"
               value={formData.healingPotential || ''}
               onChange={handleInputChange}
-              className="textarea textarea-bordered w-full"
+              className="textarea textarea-bordered w-full border-black border-solid border bg-white"
               placeholder="Enter each item on a new line"
               rows="3"
             />
@@ -85,7 +85,7 @@ function UpdateDetailsModal({ isOpen, onClose, stone, onUpdate }) {
               name="howToUse"
               value={formData.howToUse || ''}
               onChange={handleInputChange}
-              className="textarea textarea-bordered w-full"
+              className="textarea textarea-bordered w-full border-black border-solid border bg-white"
               placeholder="Enter each item on a new line"
               rows="3"
             />
@@ -98,7 +98,7 @@ function UpdateDetailsModal({ isOpen, onClose, stone, onUpdate }) {
               name="otherInfo"
               value={formData.otherInfo || ''}
               onChange={handleInputChange}
-              className="textarea textarea-bordered w-full"
+              className="textarea textarea-bordered w-full border-black border-solid border bg-white"
               placeholder="Enter each item on a new line"
               rows="3"
             />
@@ -106,7 +106,7 @@ function UpdateDetailsModal({ isOpen, onClose, stone, onUpdate }) {
 
           {/* Modal Actions */}
           <div className="modal-action">
-            <button type="submit" className="btn btn-primary">Save Changes</button>
+            <button type="submit" className="btn btn-warning">Save Changes</button>
             <button type="button" className="btn" onClick={onClose}>Cancel</button>
           </div>
         </form>

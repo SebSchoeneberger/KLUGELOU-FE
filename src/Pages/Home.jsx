@@ -13,7 +13,7 @@ function Home() {
           </h1>
           <p className="nunito text-[#0D0C22] text-center text-base leading-[24px] mb-[24px] md:text-[19.84px] md:leading-[36px] md:mb-[48px]">
             Melden Sie sich an, um Ihren kostenlosen{" "}
-            <b>7-tägigen E-Mail-Kurs</b> über Heil
+            <b>7-tägigen E-Mail-Kurs</b> über heilende Edelsteine an.
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center gap-[16px] md:gap-[24px] mb-6">
             <label className="input flex items-center gap-2 box-border w-full max-w-[300px] h-[48px] bg-white border border-black rounded-full">

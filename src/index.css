@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-description h1, .custom-description h2 {
+    @apply text-4xl font-bold text-customBlack m-6;
+  }
+  
+  .custom-description p {
+    @apply text-lg text-gray-700 leading-relaxed mb-4;
+  }
+  
+.custom-description li {
+        @apply list-disc list-inside;
+    }

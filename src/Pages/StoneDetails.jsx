@@ -26,8 +26,7 @@ function StoneDetails() {
   return (
     <>
       <section className="flex flex-col justify-center items-center px-4 md:px-6 xl:flex-row xl:items-start py-28 lg:px-44 gap-28 text-black">
-        <div 
-          className="max-w-[350px] h-full border border-black rounded-[34px] overflow-hidden sticky top-5">
+        <div className="max-w-[350px] h-full border border-black rounded-[34px] overflow-hidden xl:sticky top-5">
           <img
             src={stone.imageUrl}
             alt={stone.name}
@@ -35,58 +34,12 @@ function StoneDetails() {
           />
         </div>
 
-        <div className="flex flex-col text-left font-nunito gap-14">
-          <div>
-            <h1 className="text-5xl font-bold leading-9 pb-6">{stone.name}</h1>
-            <p className="text-base font-normal leading-6">{stone.description}</p>
-          </div>
-
-          <div>
-            <h1 className="text-4xl font-bold leading-9 pb-6">
-              Unlock the potential of {stone.name}
-            </h1>
-            {Array.isArray(stone.healingPotential) ? (
-              stone.healingPotential.map((potential, index) => (
-                <p key={index} className="text-base font-normal leading-6 mb-4">
-                  {potential}
-                </p>
-              ))
-            ) : (
-              <p className="text-base font-normal leading-6">{stone.healingPotential}</p>
-            )}
-          </div>
-
-          <div>
-            <h1 className="text-4xl font-bold leading-9 pb-6">
-              How to use {stone.name} in Your Life
-            </h1>
-            {Array.isArray(stone.howToUse) ? (
-              <ul className="list-disc pl-5">
-                {stone.howToUse.map((howTo, index) => (
-                  <li key={index} className="text-base font-normal leading-6 mb-4">
-                    {howTo}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="text-base font-normal leading-6">{stone.howToUse}</p>
-            )}
-          </div>
-
-          <div>
-            <h1 className="text-4xl font-bold leading-9 pb-6">
-              Embrace Balance and Protection
-            </h1>
-            {Array.isArray(stone.otherInfo) ? (
-              stone.otherInfo.map((info, index) => (
-                <p key={index} className="text-base font-normal leading-6 mb-4">
-                  {info}
-                </p>
-              ))
-            ) : (
-              <p className="text-base font-normal leading-6">{stone.otherInfo}</p>
-            )}
-          </div>
+        <div className="flex flex-col text-left font-nunito">
+          <h1 className="text-5xl font-bold leading-9 pb-6">{stone.name}</h1>
+          <div
+            className="custom-description"
+            dangerouslySetInnerHTML={{ __html: stone.description }}
+          />
         </div>
       </section>
 

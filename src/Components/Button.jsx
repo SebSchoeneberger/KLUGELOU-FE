@@ -4,7 +4,7 @@ function Button({
   text,
   bgColor = "bg-[#0D0C22]",
   textColor = "text-[#FFFFFF]",
-  hoverBgColor = "hover:bg-[#FFDA79]",
+  hoverBgColor = "hover:bg-[#C9C628]",
   hoverTextColor = "hover:text-[#0D0C22]",
   onClick,
 }) {
@@ -16,7 +16,7 @@ function Button({
         textColor,
         hoverBgColor,
         hoverTextColor,
-        "hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out"
+        "hover:shadow-lg transition-all duration-300 ease-in-out"
       )}
       onClick={onClick}
     >

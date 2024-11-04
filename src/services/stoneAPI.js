@@ -2,7 +2,6 @@ import axios from 'axios';
 import { getToken } from '../../utils/tokenUtils';
 
 const API_URL = import.meta.env.VITE_API_URL;
-const token = getToken();
 
 export function fetchStones() {
 
@@ -17,9 +16,10 @@ export function fetchStones() {
 }
 
 
-export function fetchStoneById(id) {
-
-    return axios.get(`${API_URL}/stones/${id}`)
+export function fetchStoneById(idOrName) {
+    
+    const formattedName = idOrName.replace(/ /g, '_');
+    return axios.get(`${API_URL}/stones/${formattedName}`)
         .then((res) => {
             return res.data.data;
         })
@@ -30,6 +30,7 @@ export function fetchStoneById(id) {
 }
 
 export function deleteStone(id) {
+    const token = getToken();
 
     return axios.delete(`${API_URL}/stones/${id}`, {
         headers: {
@@ -46,6 +47,7 @@ export function deleteStone(id) {
 }
 
 export function createStone(data) {
+    const token = getToken();
 
     return axios.post(`${API_URL}/stones`, data, {
         headers: {
@@ -62,6 +64,7 @@ export function createStone(data) {
 }
 
 export function updateStone(id, data) {
+    const token = getToken();
 
     return axios.put(`${API_URL}/stones/${id}`, data, {
         headers: {  
@@ -78,6 +81,7 @@ export function updateStone(id, data) {
 }
 
 export function uploadStoneImage(id, file) {
+    const token = getToken();
     const formData = new FormData();
     formData.append('image', file);
 

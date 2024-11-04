@@ -5,6 +5,14 @@ import { Link } from "react-router-dom";
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const scrollToGemstoneLibrary = (e) => {
+        e.preventDefault();
+        const section = document.getElementById('gemstone-library');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <nav className="bg-[#F8F7F4] relative w-full h-[109px]">
             <div className="grid grid-cols-3 items-center p-4 h-full mx-auto relative">
@@ -25,9 +33,10 @@ function Navbar() {
                 </Link>
 
                 <div className="hidden md:flex items-center gap-4 justify-end col-span-1">
-                    <Link 
+                <Link 
                         className="font-helvetica font-bold text-[13.89px] leading-[14px] text-[#6750A4]" 
-                        to="/#gemstone-library"
+                        onClick={scrollToGemstoneLibrary}
+                        to='/'
                     >
                         Go to Gemstone Library
                     </Link>

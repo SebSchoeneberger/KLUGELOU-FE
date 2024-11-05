@@ -10,7 +10,7 @@ http {
     keepalive_timeout 65;
 
     server {
-        listen       80;
+        listen       $PORT;  # Use the dynamic port assigned by Heroku
         server_name  localhost;
 
         location / {
@@ -20,4 +20,3 @@ http {
         }
     }
 }
-

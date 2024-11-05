@@ -117,7 +117,7 @@ function AdminUpdate() {
       </section>
 
       <section className="flex flex-col justify-center items-center px-4 md:px-6 xl:flex-row xl:items-start py-28 lg:px-44 gap-28 text-black">
-        <div className="max-w-[350px] h-full border border-black rounded-[34px] overflow-hidden xl:sticky top-5">
+        <div className="max-w-[350px] h-full border border-black rounded-[34px] overflow-hidden sticky top-5 flex-1">
           <img
             src={stone.imageUrl}
             alt={stone.name}
@@ -125,7 +125,7 @@ function AdminUpdate() {
           />
         </div>
 
-        <div className="flex flex-col text-left font-nunito gap-14">
+        <div className="flex flex-col text-left font-nunito gap-14 flex-1">
           <h1 className="text-5xl font-bold leading-9 pb-6">{stone.name}</h1>
           <div
             className="custom-description"

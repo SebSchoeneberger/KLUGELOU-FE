@@ -16,7 +16,7 @@ function Navbar() {
   return (
     <nav className="bg-[#F8F7F4] relative w-full h-full">
       <div className="grid grid-cols-3 items-center p-4 h-full mx-auto relative">
-        <div className="hidden lg:flex justify-start">
+        <Link to='/' className="hidden lg:flex justify-start">
           <a className="nunito font-bold text-customBlack text-base p-10">
             <img
               src="https://cdn.shopify.com/s/files/1/0890/9170/3131/files/Klugelou_Icono_Logo_Marron.png?v=1730638190&width=100"
@@ -24,7 +24,7 @@ function Navbar() {
               className="h-14"
             />
           </a>
-        </div>
+        </Link>
 
         <Link
           to="/"

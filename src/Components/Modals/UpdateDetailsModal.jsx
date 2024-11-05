@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { updateStone } from '../../services/stoneAPI';
-import { useQuill } from 'react-quilljs';
+import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 
 function UpdateDetailsModal({ isOpen, onClose, stone, onUpdate }) {
-  const { quill, quillRef } = useQuill();
+  const editorRef = useRef(null);
+  const [quill, setQuill] = useState(null);
   const [description, setDescription] = useState('');
 
   useEffect(() => {
@@ -12,15 +13,47 @@ function UpdateDetailsModal({ isOpen, onClose, stone, onUpdate }) {
       setDescription(stone.description || '');
     }
   }, [stone]);
-
+  const toolbarOptions = [
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+    ['bold', 'italic', 'underline'],
+    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    [{ 'align': [] }],
+    [{ 'script': 'sub' }, { 'script': 'super' }],
+    [{ 'color': [] }, { 'background': [] }],
+    ['blockquote'],
+    ['clean']
+  ];
+  
+  // Initialize Quill editor only once when modal is open
   useEffect(() => {
-    if (quill) {
-      quill.root.innerHTML = description;
-      quill.on('text-change', () => {
-        setDescription(quill.root.innerHTML); 
+    if (isOpen && editorRef.current && !quill) {
+      const quillInstance = new Quill(editorRef.current, {
+        theme: 'snow',
+        modules: { toolbar: toolbarOptions },
+      });
+      setQuill(quillInstance);
+
+      // Update state with editor content on changes
+      quillInstance.on('text-change', () => {
+        setDescription(quillInstance.root.innerHTML);
       });
     }
-  }, [quill]);
+
+    // Cleanup function to reset Quill instance when modal closes
+    return () => {
+      if (quill) {
+        quill.off('text-change');
+        setQuill(null);
+      }
+    };
+  }, [isOpen, quill]);
+
+  // Load the initial description into the editor once
+  useEffect(() => {
+    if (quill && description) {
+      quill.root.innerHTML = description;
+    }
+  }, [quill, description]); // Only runs once after quill is initialized
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,7 +72,7 @@ function UpdateDetailsModal({ isOpen, onClose, stone, onUpdate }) {
         <form onSubmit={handleSubmit} className="py-4">
           <div className="mb-4">
             <label className="block text-sm font-bold mb-2">Description</label>
-            <div ref={quillRef} className='h-full w-full border border-solid ' /> 
+            <div ref={editorRef} className="h-full w-full border border-solid" />
           </div>
           <div className="modal-action">
             <button type="submit" className="btn btn-warning">Save Changes</button>
@@ -52,6 +85,8 @@ function UpdateDetailsModal({ isOpen, onClose, stone, onUpdate }) {
 }
 
 export default UpdateDetailsModal;
+
+
 
     
 

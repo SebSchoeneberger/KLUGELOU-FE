@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "serve -s build",
+    "start": "vite preview",
     "postinstall": "npm run build"
   },
   "dependencies": {
@@ -17,8 +17,7 @@
     "quill": "^2.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.27.0",
-    "serve": "^14.2.4"
+    "react-router-dom": "^6.27.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",

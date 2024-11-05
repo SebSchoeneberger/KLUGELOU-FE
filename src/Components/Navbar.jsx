@@ -5,6 +5,14 @@ import { Link } from "react-router-dom";
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const scrollToGemstoneLibrary = (e) => {
+    e.preventDefault();
+    const section = document.getElementById('gemstone-library');
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+};
+
   return (
     <nav className="bg-[#F8F7F4] relative w-full h-full">
       <div className="grid grid-cols-3 items-center p-4 h-full mx-auto relative">
@@ -33,7 +41,8 @@ function Navbar() {
         <div className="hidden md:flex items-center gap-4 justify-end col-span-1">
           <Link
             className="nunito font-bold text-base leading-[16px] text-[#A46C07]"
-            to="/#gemstone-library"
+            onClick={scrollToGemstoneLibrary}
+            to='/'
           >
             Edelstein ansehen
           </Link>

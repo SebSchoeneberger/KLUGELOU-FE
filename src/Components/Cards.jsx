@@ -21,12 +21,13 @@ function Cards({
     if (admin) {
       navigate(`/admin/update/${_id}`);
     } else {
-      navigate(`/stone/${_id}`);
+      const formattedName = name.replace(/ /g, '_');
+      navigate(`/stone/${formattedName}`);
     }
   };
 
   return (
-    <div className="card bg-white w-[315px] max-h-[547px] border border-black shadow-xl rounded-[34px] overflow-hidden flex flex-col">
+    <div className="card bg-white w-[315px] max-h-[547px] border border-black shadow-xl rounded-[34px] overflow-hidden flex flex-col transition-transform transform hover:scale-105">
       <figure className="w-full h-[223px]">
         <img src={imageUrl} alt={name} className="w-full h-full object-cover" />
       </figure>

@@ -70,9 +70,9 @@ function UpdateDetailsModal({ isOpen, onClose, stone, onUpdate }) {
       <div className="modal-box bg-[#e0e2e6] text-customBlack w-[90%] max-w-3xl h-auto">
         <h3 className="font-bold text-lg">Update Stone Details</h3>
         <form onSubmit={handleSubmit} className="py-4">
-          <div className="mb-4">
+          <div className="mb-4 border border-solid border-black rounded-md">
             <label className="block text-sm font-bold mb-2">Description</label>
-            <div ref={editorRef} className="h-full w-full border border-solid" />
+            <div ref={editorRef} className="bg-white h-full w-full border border-solid" />
           </div>
           <div className="modal-action">
             <button type="submit" className="btn btn-warning">Save Changes</button>

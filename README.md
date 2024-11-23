@@ -1,8 +1,12 @@
-# React + Vite
+# Klugelou Gemstone Seller Webpage - Frontend Repo 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **frontend repository** for a Gemstone Seller Webpage, a full-stack MERN application designed to showcase and manage gemstones. The application allows users to browse and filter gemstones while providing admins with tools to manage the inventory dynamically.  
 
-Currently, two official plugins are available:
+## Features  
+- Interactive gemstone library with advanced filtering.  
+- Admin panel for creating, updating, and managing gemstones.  
+- Intuitive design with reusable React components.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Links  
+- **Live Page:** [edelstein-bibliothek.de](https://edelstein-bibliothek.de/)  
+- **Backend Repository:** [KLUGELOU-BE](https://github.com/SebSchoeneberger/KLUGELOU-BE)  
